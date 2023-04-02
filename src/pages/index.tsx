@@ -1,14 +1,31 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+// import Image from 'next/image'
+// import styles from '@/styles/Home.module.css'
 import Form from '@/components/Form'
 import WorkList from '@/components/WorkList'
+import { useAppDispatch, useAppSelector } from '@/components/redux/hooks'
+import { increment, incrementByAmount, selectCount } from '@/components/redux/reducers/counterSlice'
+import { useEffect } from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const count = useAppSelector((state) => state)
+   const dispatch = useAppDispatch()
+  //  
   
+
+  useEffect(() => {
+    dispatch(increment())
+
+    
+  }, [])
+  useEffect(() => {
+    console.log("renderHome",count)
+ 
+
+    
+  },)
+
   return (
     <>
       <Head>
